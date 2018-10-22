@@ -95,7 +95,7 @@
       <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_S-cDsNYNEei7_cZxNd0hjA" name="ExtensionPoint2"/>
       <include xmi:type="uml:Include" xmi:id="_EgU0UNYNEei7_cZxNd0hjA" addition="_APPZoNYNEei7_cZxNd0hjA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_APPZoNYNEei7_cZxNd0hjA" name="Recording street state"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_APPZoNYNEei7_cZxNd0hjA" name="Record street state"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_GHHL8NYNEei7_cZxNd0hjA" name="Report numbers of cars">
       <generalization xmi:type="uml:Generalization" xmi:id="_M8DqgNYNEei7_cZxNd0hjA" general="_7HjuINYMEei7_cZxNd0hjA"/>
     </packagedElement>
