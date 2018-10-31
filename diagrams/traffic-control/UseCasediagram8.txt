@@ -1,0 +1,4 @@
+This usecase diagram includes the roadmaintenance and traffic control and detection subsystems as actors. The traffic control and detection
+subsystem reports regularly the numbers of cars on a street to the roadmaintenance which gets notified. As the roadmaintenance actors has
+got the statistical information about the state of a road it has to regularly schedule repairs which includes recording the street state and
+optionally trigger a maintenance case if the street is in a bad state.

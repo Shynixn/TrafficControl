@@ -1,0 +1,4 @@
+This usecase diagram involves 2 actors, the control system which is another subsystem of traffic control and a real person called
+traffic supervisor. In order to allow the control system change controllable traffic components like speed limits or switch traffic
+lights, it has primary the focus to apply a new traffic plan. The traffic supervisor can additionally change controllable traffic
+components via a web interface.

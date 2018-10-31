@@ -1,0 +1,4 @@
+This usecase diagram involves lots of actors which are all part of the whole system called traffic control. One exception is the actor
+called roadmaintenance supervisor because he is a real person which can trigger a maintenance via a web interface. The traffic control
+and detection system can also report an accident which always results in triggering a maintenance. Once a maintenance is triggered the
+control system and the traffic participant are notified.
