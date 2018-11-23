@@ -13,6 +13,7 @@ public class HelloWorldEndpoint {
 	@GET
 	@Produces("text/plain")
 	public Response doGet() {
-		return Response.ok("Hello from Traffic Control and Detection!").build();
+		return Response.ok("Hello from Traffic Control and " +
+				"!").build();
 	}
 }
