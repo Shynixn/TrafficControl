@@ -1,4 +1,0 @@
-This usecase diagram involves the control system, the traffic participant and traffic control and detection subsystems as actors. In order
-to fulfill their tasks traffic participant and control system have to be able to request the traffic state of the city which always results
-in notifying the traffic control and detection actor. The traffic control and detection actor is advised to resolve any unknown traffic situation
-which always results in asking the control system for help.
