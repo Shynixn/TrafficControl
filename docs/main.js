@@ -253,7 +253,7 @@ var DocumentationComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"header\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <img width=\"300\" alt=\"TrafficControl Logo\" src=\"../assets/Logo.png\">\n</div>\n\n<div class=\"row\">\n  <div class=\"col\">\n    <h2>We create the traffic solution for the city of the future!</h2>\n  </div>\n</div>\n"
+module.exports = "\n<div class=\"header\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <img width=\"300\" alt=\"TrafficControl Logo\" src=\"TrafficControl/assets/Logo.png\">\n</div>\n\n<div class=\"row\">\n  <div class=\"col\">\n    <h2>We create the traffic solution for the city of the future!</h2>\n  </div>\n</div>\n"
 
 /***/ }),
 
