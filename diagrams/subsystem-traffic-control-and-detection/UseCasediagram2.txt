@@ -1,0 +1,4 @@
+This usecase diagram includes 2 different actors, the control system and traffic participant, which are both part of the traffic control system.
+One of the main goals of the control system is to be able to request traffic states which always includes requesting the traffic lights
+and the speed limits. The traffic participant can also request the traffic state and trigger
+traffic events which can be clicking traffic light button or causing an accident.

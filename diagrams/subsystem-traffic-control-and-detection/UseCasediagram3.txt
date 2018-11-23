@@ -1,0 +1,2 @@
+This usecase diagram involves only actor which is called the scheduler. This actor is required to change the traffic state of the city in a certain time interval
+which always includes changing it by base traffic rules it has predefined and optionally change it by a provided plan of the control system.

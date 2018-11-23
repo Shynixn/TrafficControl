@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_dWsxoNYFEei7_cZxNd0hjA" name="Usecasediagram3">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_dZr0MNYFEei7_cZxNd0hjA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_lRYJMNYFEei7_cZxNd0hjA" name="Traffic control and detection">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_lRYJMdYFEei7_cZxNd0hjA" name="Apply traffic plan"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_lRYJMtYFEei7_cZxNd0hjA" name="Switch traffic lights"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_lRYJM9YFEei7_cZxNd0hjA" name="Change speed limits"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_lRYJNNYFEei7_cZxNd0hjA" name="Change controllable traffic components"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_lRYJNdYFEei7_cZxNd0hjA" name="include" client="_lRYJMdYFEei7_cZxNd0hjA" supplier="_lRYJNNYFEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_lRYJNtYFEei7_cZxNd0hjA" name="extend" client="_lRYJM9YFEei7_cZxNd0hjA" supplier="_lRYJNNYFEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_lRYJN9YFEei7_cZxNd0hjA" name="extend" client="_lRYJMtYFEei7_cZxNd0hjA" supplier="_lRYJNNYFEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_lRYJONYFEei7_cZxNd0hjA" name="Trigger traffic events"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_lRYJOdYFEei7_cZxNd0hjA" name="Request traffic state"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_lRYJOtYFEei7_cZxNd0hjA" name="Click traffic light button"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_lRYJO9YFEei7_cZxNd0hjA" name="Cause accident"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_lRYJPNYFEei7_cZxNd0hjA" name="extend" client="_lRYJO9YFEei7_cZxNd0hjA" supplier="_lRYJONYFEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_lRYJPdYFEei7_cZxNd0hjA" name="extend" client="_lRYJOtYFEei7_cZxNd0hjA" supplier="_lRYJONYFEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_lRYJPtYFEei7_cZxNd0hjA" name="Request traffic lights"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_lRYJP9YFEei7_cZxNd0hjA" name="Request speed limits"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_lRYJQNYFEei7_cZxNd0hjA" name="include" client="_lRYJOdYFEei7_cZxNd0hjA" supplier="_lRYJPtYFEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_lRYJQdYFEei7_cZxNd0hjA" name="include" client="_lRYJOdYFEei7_cZxNd0hjA" supplier="_lRYJP9YFEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_696uINYFEei7_cZxNd0hjA" name="Change traffic state">
+      <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_y6tlUNYIEei7_cZxNd0hjA" name="ExtensionPoint1"/>
+      <include xmi:type="uml:Include" xmi:id="_zmTgANYIEei7_cZxNd0hjA" addition="_PbHLENYGEei7_cZxNd0hjA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_PbHLENYGEei7_cZxNd0hjA" name="Change by base traffic rules"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_WJaPENYGEei7_cZxNd0hjA" name="Change by provided plan">
+      <extend xmi:type="uml:Extend" xmi:id="_y6s-QNYIEei7_cZxNd0hjA" extendedCase="_696uINYFEei7_cZxNd0hjA" extensionLocation="_y6tlUNYIEei7_cZxNd0hjA"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_8Bd10NYFEei7_cZxNd0hjA" name="Scheduler"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_AIOP0NYGEei7_cZxNd0hjA" memberEnd="_AIQsENYGEei7_cZxNd0hjA _AIQsEdYGEei7_cZxNd0hjA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_AIPd8NYGEei7_cZxNd0hjA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_AIQFANYGEei7_cZxNd0hjA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_AIQsENYGEei7_cZxNd0hjA" name="register for road reports" type="_696uINYFEei7_cZxNd0hjA" association="_AIOP0NYGEei7_cZxNd0hjA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_AIQsEdYGEei7_cZxNd0hjA" name="road maintenance" type="_8Bd10NYFEei7_cZxNd0hjA" association="_AIOP0NYGEei7_cZxNd0hjA"/>
+  </packagedElement>
+</uml:Model>

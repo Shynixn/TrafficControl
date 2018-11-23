@@ -1,0 +1,4 @@
+This usecase diagram includes only subsystems from traffic control and the traffic supervisor as actors. The traffic supervisor which is a real person
+has the primary focus on being able to change controllable traffic components via a web interface. Once a controllable
+traffic component was changed via the control system or the traffic supervisor it locks the state for the traffic components
+for a certain amount of time and notifies the traffic control and detection subsystem.

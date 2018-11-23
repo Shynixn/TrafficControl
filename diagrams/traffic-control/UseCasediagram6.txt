@@ -1,0 +1,5 @@
+This usecase diagram involves 3 actors called traffic control and detection, roadmaintenance and traffic participants. The traffic
+control and detection actor can request participants from the system which optionally results in requesting induction loops or/and
+requesting cameras. The traffic participants subsystem however has the primary focus on simulating all participants in this system
+which can sometimes result in simulating a maintenance car. When a maintenance car is simulated it should always notify roadmaintenance when
+it has arrived at his goal.

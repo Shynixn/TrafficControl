@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_GdzKcNYJEei7_cZxNd0hjA" name="Usecasediagram5">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_GhszANYJEei7_cZxNd0hjA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_OqopANYJEei7_cZxNd0hjA" name="Traffic control">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopAdYJEei7_cZxNd0hjA" name="Apply traffic plan"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopAtYJEei7_cZxNd0hjA" name="Switch traffic lights"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopA9YJEei7_cZxNd0hjA" name="Change speed limits"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopBNYJEei7_cZxNd0hjA" name="Change controllable traffic components"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OqopBdYJEei7_cZxNd0hjA" name="include" client="_OqopAdYJEei7_cZxNd0hjA" supplier="_OqopBNYJEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OqopBtYJEei7_cZxNd0hjA" name="extend" client="_OqopA9YJEei7_cZxNd0hjA" supplier="_OqopBNYJEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OqopB9YJEei7_cZxNd0hjA" name="extend" client="_OqopAtYJEei7_cZxNd0hjA" supplier="_OqopBNYJEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopCNYJEei7_cZxNd0hjA" name="Trigger traffic events"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopCdYJEei7_cZxNd0hjA" name="Request traffic state"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopCtYJEei7_cZxNd0hjA" name="Click traffic light button"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopC9YJEei7_cZxNd0hjA" name="Cause accident"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OqopDNYJEei7_cZxNd0hjA" name="extend" client="_OqopC9YJEei7_cZxNd0hjA" supplier="_OqopCNYJEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OqopDdYJEei7_cZxNd0hjA" name="extend" client="_OqopCtYJEei7_cZxNd0hjA" supplier="_OqopCNYJEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopDtYJEei7_cZxNd0hjA" name="Request traffic lights"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopD9YJEei7_cZxNd0hjA" name="Request speed limits"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OqopENYJEei7_cZxNd0hjA" name="include" client="_OqopCdYJEei7_cZxNd0hjA" supplier="_OqopDtYJEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OqopEdYJEei7_cZxNd0hjA" name="include" client="_OqopCdYJEei7_cZxNd0hjA" supplier="_OqopD9YJEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopEtYJEei7_cZxNd0hjA" name="Change traffic state"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopE9YJEei7_cZxNd0hjA" name="Change by base traffic rules"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopFNYJEei7_cZxNd0hjA" name="Change by provided plan"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OqopFdYJEei7_cZxNd0hjA" name="extend" client="_OqopFNYJEei7_cZxNd0hjA" supplier="_OqopEtYJEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_OqopFtYJEei7_cZxNd0hjA" name="include" client="_OqopEtYJEei7_cZxNd0hjA" supplier="_OqopE9YJEei7_cZxNd0hjA"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopF9YJEei7_cZxNd0hjA" name="Visite website"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopGNYJEei7_cZxNd0hjA" name="Trigger maintenance">
+      <include xmi:type="uml:Include" xmi:id="_OqopGdYJEei7_cZxNd0hjA" addition="_OqopF9YJEei7_cZxNd0hjA"/>
+      <include xmi:type="uml:Include" xmi:id="_OqopGtYJEei7_cZxNd0hjA" addition="_OqopHNYJEei7_cZxNd0hjA"/>
+      <include xmi:type="uml:Include" xmi:id="_OqopG9YJEei7_cZxNd0hjA" addition="_OqopHtYJEei7_cZxNd0hjA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopHNYJEei7_cZxNd0hjA" name="Request maintenance car">
+      <generalization xmi:type="uml:Generalization" xmi:id="_OqopHdYJEei7_cZxNd0hjA">
+        <general xmi:type="uml:Actor" href="Usecasediagram4.uml#_8LOHYNYIEei7_cZxNd0hjA"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopHtYJEei7_cZxNd0hjA" name="Notify blocked street">
+      <generalization xmi:type="uml:Generalization" xmi:id="_OqopH9YJEei7_cZxNd0hjA">
+        <general xmi:type="uml:Actor" href="Usecasediagram4.uml#_W7PCsNYIEei7_cZxNd0hjA"/>
+      </generalization>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_OqopINYJEei7_cZxNd0hjA" name="Report accident">
+      <include xmi:type="uml:Include" xmi:id="_OqopIdYJEei7_cZxNd0hjA" addition="_OqopGNYJEei7_cZxNd0hjA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_aEAVANYJEei7_cZxNd0hjA" name="Change controllable traffic components">
+      <include xmi:type="uml:Include" xmi:id="_GYNqYNYKEei7_cZxNd0hjA" addition="_BOohcNYKEei7_cZxNd0hjA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_4SVU0NYJEei7_cZxNd0hjA" name="Apply traffic plan">
+      <include xmi:type="uml:Include" xmi:id="_6tw1cNYJEei7_cZxNd0hjA" addition="_aEAVANYJEei7_cZxNd0hjA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_BOohcNYKEei7_cZxNd0hjA" name="Lock state for certain duration">
+      <generalization xmi:type="uml:Generalization" xmi:id="_HKT1sNYKEei7_cZxNd0hjA" general="_B3FokNYKEei7_cZxNd0hjA"/>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_VJ1hENYJEei7_cZxNd0hjA" name="Traffic Supervisor"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_tu6ZYNYJEei7_cZxNd0hjA" memberEnd="_tu6ZY9YJEei7_cZxNd0hjA _tu7AcNYJEei7_cZxNd0hjA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tu6ZYdYJEei7_cZxNd0hjA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tu6ZYtYJEei7_cZxNd0hjA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_tu6ZY9YJEei7_cZxNd0hjA" name="change controllable traffic components" type="_aEAVANYJEei7_cZxNd0hjA" association="_tu6ZYNYJEei7_cZxNd0hjA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_tu7AcNYJEei7_cZxNd0hjA" name="traffic supervisor" type="_VJ1hENYJEei7_cZxNd0hjA" association="_tu6ZYNYJEei7_cZxNd0hjA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_1PLF0NYJEei7_cZxNd0hjA" name="Control System"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_7VBpwNYJEei7_cZxNd0hjA" memberEnd="_7VCQ0dYJEei7_cZxNd0hjA _7VCQ0tYJEei7_cZxNd0hjA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7VBpwdYJEei7_cZxNd0hjA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7VCQ0NYJEei7_cZxNd0hjA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_7VCQ0dYJEei7_cZxNd0hjA" name="apply traffic plan" type="_4SVU0NYJEei7_cZxNd0hjA" association="_7VBpwNYJEei7_cZxNd0hjA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_7VCQ0tYJEei7_cZxNd0hjA" name="control system" type="_1PLF0NYJEei7_cZxNd0hjA" association="_7VBpwNYJEei7_cZxNd0hjA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_B3FokNYKEei7_cZxNd0hjA" name="Traffic Control and Detection"/>
+</uml:Model>
