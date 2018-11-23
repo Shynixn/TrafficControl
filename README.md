@@ -47,5 +47,4 @@ mvn install
 ```
 
 ### Licence
-
-The source code is licensed under the MIT license.
+Not issued yet
