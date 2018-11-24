@@ -14,7 +14,7 @@ public class HelloWorldController {
 
     /**
      * Sends a plain text response 'Hello from Traffic Participants!' once
-     * a user opens 'http://127.0.0.1/trafficparticipants/hello'
+     * a user opens 'http://127.0.0.1:8084/trafficparticipants/hello'
      *
      * @return response.
      */

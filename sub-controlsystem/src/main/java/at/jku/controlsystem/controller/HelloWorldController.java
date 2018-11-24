@@ -1,4 +1,4 @@
-package at.jku.trafficcontrol.trafficcontrolanddetection.controller;
+package at.jku.controlsystem.controller;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,14 +13,14 @@ import javax.ws.rs.core.Response;
 public class HelloWorldController {
 
     /**
-     * Sends a plain text response 'Hello from Traffic Control and Detection!' once
-     * a user opens 'http://127.0.0.1:8083/trafficcontrolanddetection/hello'
+     * Sends a plain text response 'Hello from ControlSystem!' once
+     * a user opens 'http://127.0.0.1:8081/controlsystem/hello'
      *
      * @return response.
      */
     @GET
     @Produces("text/plain")
     public Response doGet() {
-        return Response.ok("Hello from Traffic Control and Detection!").build();
+        return Response.ok("Hello from ControlSystem!").build();
     }
 }
