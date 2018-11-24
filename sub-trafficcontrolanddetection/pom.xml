@@ -10,4 +10,38 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>sub-trafficcontrolanddetection</artifactId>
     <packaging>war</packaging>
+
+    <properties>
+        <swarm.http.port>8082</swarm.http.port>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.thorntail</groupId>
+                <artifactId>thorntail-maven-plugin</artifactId>
+                <version>${version.thorntail}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <properties>
+                        <swarm.http.port>8083</swarm.http.port>
+                    </properties>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

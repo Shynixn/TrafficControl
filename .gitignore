@@ -34,6 +34,7 @@ sub-controlsystem/sub-controlsystem.iml
 sub-trafficcontrolanddetection/sub-trafficcontrolanddetection.iml
 sub-trafficparticipants/sub-trafficparticipants.iml
 sub-roadmaintenance/sub-roadmaintenance.iml
+sub-city/sub-city.iml
 
 # Generated files
 .idea/**/contentModel.xml
