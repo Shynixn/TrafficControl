@@ -1,4 +1,4 @@
-# Traffic Control [![GitHub license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/meik99/TrafficControl/blob/master/LICENSE)
+# Traffic Control
 
 | Branch        | Status        | Coverage | Information |
 | ------------- | --------------| ------- | ------- |
