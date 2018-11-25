@@ -1,5 +1,134 @@
-<div class="row">
-  <div class="col">
-    <h1>Coming soon!</h1>
+<div class="container">
+  <div class="container-text">
+    <div class="row">
+      <div class="col">
+        <h2>Cloning - Building - Executing</h2>
+      </div>
+    </div>
+    <!-- Installing Git-->
+    <div class="row">
+      <div class="col">
+        <h3>Installing Git</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4>Windows</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Go to <a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a> to download
+        the Git-installer. Execute and install.
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h4>Ubuntu and devirates</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Open a terminal and execute the following commands:
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <code>sudo apt update</code><br>
+        <code>sudo apt upgrade -yf</code><br>
+        <code>sudo apt install git</code>
+      </div>
+    </div>
+
+    <!-- Cloning Repository -->
+    <div class="row">
+      <div class="col">
+        <h3>Clone</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Open a terminal and execute the following command:
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <code>git clone https://github.com/meik99/TrafficControl.git</code>
+      </div>
+    </div>
+
+    <!-- Build the systems -->
+    <div class="row">
+      <div class="col">
+        <h3>Build</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        To build the subsystems, go to the directory the clone command has created and execute the following command
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <code>mvn clean install package</code>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        The execute <code>buildDocker.sh</code>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        These actions will first build all subsystems. The builds can be found in the "target" directory
+        of each subsystem. The buildDocker file will then build the docker images in the correct order.
+      </div>
+    </div>
+  </div>
+
+  <!-- Execute Services -->
+  <div class="row">
+    <div class="col">
+      <h3>Execute as Docker image</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      By executing <code>startup.sh</code> all services will be started in docker container.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Execute as JAR-Application</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      By executing the generated jar-files in the target folder the service started will run on the local machine.
+      The jar can be executed with <br>
+      <code>java -jar [name-of-jar].jar</code>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      In both instances can the services be accessed by the following URLs.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+        Subsystem<br>
+        Traffic Participants<br>
+        Traffic Control and Detection<br>
+        Road Maintenance<br>
+        Cotnrol System<br>
+    </div>
+    <div class="col">
+      URL<br>
+      http://localhost:8081/trafficparticipants<br>
+      http://localhost:8082/trafficcontrolanddetection<br>
+      http://localhost:8083/roadmaintenance<br>
+      http://localhost:8084/controlsystem<br>
+    </div>
   </div>
 </div>
