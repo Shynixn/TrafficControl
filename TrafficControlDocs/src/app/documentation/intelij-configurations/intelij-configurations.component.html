@@ -2,8 +2,80 @@
   <div class="container-text">
     <div class="row">
       <div class="col">
-        <h2>InteliJ Configurations</h2>
+        <h2>IntelliJ Configurations</h2>
       </div>
+    </div>
+  </div>
+</div>
+<div class="container-text modern-margin">
+  <div class="row">
+    <div class="col">
+      <h3>Purpose of this Document</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      To debug a certain subsystem you may want to run two or more
+      subsystems at the same time. This document shows you how
+      to setup Run-Configurations in IntelliJ to automate the
+      building and startup of multiple subsystems.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Setup</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      You will probably start with a UI similar to this:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img class="image" src="../../../assets/IntelliJ%20Configuration/Step_1.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    1) We start by adding the <code>mvn package</code> commands for each
+      subsystem to the Run-Configurations
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      1.1) Click on "Run" at the top of IntelliJ. The click on "Edit Configurations".
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img class="image" src="../../../assets/IntelliJ%20Configuration/Step_2.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      1.2) On the window poping up, click the "+" button and select "Maven".
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img class="image" src="../../../assets/IntelliJ%20Configuration/Step_3.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      In the "Name"-field, insert an appropriate name. For "Working directory" select the subsystem
+      you want to build. In "Command line", insert "package".
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img class="image" src="../../../assets/IntelliJ%20Configuration/Step_4.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Repeat step 1.2) for each subsystem.
     </div>
   </div>
 </div>
