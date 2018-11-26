@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { DocumentationComponent } from './documentation/documentation.component';
+import { DocumentationNavComponent } from './documentation-nav/documentation-nav.component';
+import { IntelijConfigurationsComponent } from './documentation/intelij-configurations/intelij-configurations.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    DocumentationComponent
+    DocumentationComponent,
+    DocumentationNavComponent,
+    IntelijConfigurationsComponent
   ],
   imports: [
     BrowserModule,
