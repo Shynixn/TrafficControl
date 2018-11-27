@@ -22,7 +22,7 @@ import {environment} from "../environments/environment";
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [{provide: APP_BASE_HREF, useValue: environment.baseHref}],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
