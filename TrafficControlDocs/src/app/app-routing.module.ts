@@ -11,6 +11,10 @@ const routes: Routes = [
     component: WelcomeComponent
   },
   {
+    path: 'home',
+    component: WelcomeComponent
+  },
+  {
     path: 'docs',
     component: DocumentationNavComponent
   },
