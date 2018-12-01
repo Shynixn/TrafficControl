@@ -1,9 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+$break-small: 1000px
+
 *
-  font-family: Arial, sans-serif
+  font-family: "DejaVu Sans", Arial, sans-serif
   font-weight: normal
   margin: 0
   padding: 0
+
+body
+  background: url("assets/background.svg") repeat
 
 .header
   text-align: center
@@ -11,21 +16,97 @@
 
 h1
   font-size: 50px
-  padding-bottom: 50px
 
 h2
-  text-align: center
   font-size: 40px
+
+h3
+  font-weight: bold
+  padding-top: 20px
+h4
+  font-weight: bold
+
+code
+  font-family: FreeMono, monospace
+  color: black
+
+table
+  margin-top: 10px
+  text-align: left
+th
+  border-bottom: 1px solid black
+tr
+  padding: 10px
+
+.nav
+  margin: 0 10% 10px 10%
+
+  @media screen and (max-width: $break-small)
+    margin: 0 0 10px 0
+
+  height: 40px
+
+  background: white
+
+  box-shadow: 1px 1px 4px 0 black
+
+  .nav-items
+    height: 40px
+    list-style: none
+
+    .nav-item
+      height: 20px
+      padding: 10px
+      float: left
+      cursor: pointer
+
+    .nav-item-active
+      background-color: rgb(220, 220, 220)
+
+    a
+      text-decoration: none
+      color: black
+
+    .nav-item:hover
+      background-color: rgb(200, 200, 200)
+
+
+.container
+  margin: 0 10% 0 10%
+  padding: 20px 0 20px 0
+  background-color: #D34E24
+  color: #EDF2F4
+
+  @media screen and (max-width: $break-small)
+    margin: 0 0 0 0
+
+.modern-margin
+  margin: 0 10% 0 10%
+
+  @media screen and (max-width: $break-small)
+    margin: 0 0 0 0
+
+
+.container-text
+  width: 50%
+  text-align: justify
+
+  @media screen and (max-width: $break-small)
+    width: 100%
 
 .row
   display: flex
+  flex-wrap: wrap
   margin: 10px
 
 .col
-  flex: 1
+  padding-right: 10px
 
 .center-text
   text-align: center
+
+.padding-bottom-50
+  padding-bottom: 50px
 
 
 .max-width

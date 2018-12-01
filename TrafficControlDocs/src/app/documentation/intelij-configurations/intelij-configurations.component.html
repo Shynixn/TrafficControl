@@ -1,0 +1,170 @@
+<div class="container">
+  <div class="container-text">
+    <div class="row">
+      <div class="col">
+        <h2>IntelliJ Configurations</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-text modern-margin">
+  <div class="row">
+    <div class="col">
+      <h3>Purpose of this Document</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      To debug a certain subsystem you may want to run two or more
+      subsystems at the same time. This document shows you how
+      to setup Run-Configurations in IntelliJ to automate the
+      building and startup of multiple subsystems.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Setup</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      You will probably start with a UI similar to this:
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img class="image" src='assets/IntelliJ%20Configuration/Step_1.png'>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    1) We start by adding the <code>mvn package</code> commands for each
+      subsystem to the Run-Configurations
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      1.1) Click on "Run" at the top of IntelliJ. The click on "Edit Configurations".
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img class="image" src="assets/IntelliJ%20Configuration/Step_2.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      1.2) On the window poping up, click the "+" button and select "Maven".
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img class="image" src="assets/IntelliJ%20Configuration/Step_3.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      In the "Name"-field, insert an appropriate name. For "Working directory" select the subsystem
+      you want to build. In "Command line", insert "package".
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img class="image" src="assets/IntelliJ%20Configuration/Step_4.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Repeat from step 1.2) for each subsystem.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      2) Now we add a "Compound"-Configuration to package every subsystem
+      at once.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      2.1) Again, click on the "+"-button, but this time, select "Compound".
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      2.2) Click the "+"-button in the Compound-window and add all Maven-Configurations
+      for each subsystem.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img class="image" src="assets/IntelliJ%20Configuration/Step_5.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img class="image" src="assets/IntelliJ%20Configuration/Step_5_1.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      2.3) Click "OK" and execute the "Compound" configuration
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img class="image" src="assets/IntelliJ%20Configuration/Step_6.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Now Maven will build the "JAR"-files for each subsystem. The next
+      steps will be to create Run-configurations for those "JAR"-files
+      and another Compound-configuration to execute all at once.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      3) Again, open the configuration menu. (See 1.1)
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      3.1) Click on the "+"-button and select "JAR-Application" (<em>not</em> "Application")
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      3.2) In the "Name" field, insert an appropriate name. In the "Path to JAR"
+       field, click on the folder icon and select the JAR-file of the subsystem you want
+      to setup the configuration for.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <img class="image" src="assets/IntelliJ%20Configuration/Step_7.png">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Repeat from step 3.1) for each subsystem.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      4) Create another Compound-configuration in which
+       you add the created JAR-Application-configurations
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      By executing this Compound-configuration you can start all
+       the subsystems at once.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      By executing a JAR-Application-configuration you can start
+      a specific subsystems.
+    </div>
+  </div>
+</div>
