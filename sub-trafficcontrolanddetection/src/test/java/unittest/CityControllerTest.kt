@@ -10,14 +10,14 @@ import javax.ws.rs.core.Response
 class CityControllerTest {
     /**
      * Given
-     *      a arena
+     *      a mocked city
      * When
-     *      serialize is called
+     *      getCity is called
      * Then
-     *     the arena should be serialized.
+     *     200 OK with city payload should be returned.
      */
     @Test
-    fun serialize_Arena_ShouldSerializeCorrectly() {
+    fun getCity_MockedCity_ShouldReturn200OK() {
         // Arrange
         val classUnderTest = createWithDependencies()
         val expectedCity = City("MockedCity", "Springfield")
