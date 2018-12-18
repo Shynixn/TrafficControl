@@ -1,4 +1,4 @@
-package at.jku.controlsystem
+package at.jku.controlsystem.service
 
 import at.jku.controlsystem.service.CommandApiService
 import at.jku.controlsystem.service.CommandApiServiceImpl

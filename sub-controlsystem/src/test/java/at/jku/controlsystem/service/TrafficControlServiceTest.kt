@@ -1,7 +1,5 @@
-package at.jku.controlsystem
+package at.jku.controlsystem.service
 
-import at.jku.controlsystem.service.TrafficApiService
-import at.jku.controlsystem.service.TrafficApiServiceImpl
 import org.junit.jupiter.api.Test
 import javax.json.Json
 import javax.json.JsonObject
@@ -25,7 +23,7 @@ class TrafficControlServiceTest{
     @Test
     fun `Has method getTrafficCommands that returns JsonObject`(){
         val trafficApiService = TrafficApiServiceImpl()
-        val response: JsonObject = trafficApiService.getTrafficCommands()
+        val response: JsonObject = trafficApiService.getCurrentTraffic()
 
         assertNotNull(response)
     }
