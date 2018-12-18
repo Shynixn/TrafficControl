@@ -9,6 +9,7 @@ class TrafficApiServiceImpl : TrafficApiService{
     }
 
     override fun getTrafficCommands(): JsonObject {
+
         return Json.createObjectBuilder().build()
     }
 
