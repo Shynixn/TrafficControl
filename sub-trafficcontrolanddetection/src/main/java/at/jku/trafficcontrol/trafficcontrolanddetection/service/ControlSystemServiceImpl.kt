@@ -9,7 +9,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.nio.file.Files
-import java.util.*
 import java.util.concurrent.CompletableFuture
 import javax.inject.Inject
 import javax.ws.rs.client.Entity
@@ -26,12 +25,11 @@ class ControlSystemServiceImpl @Inject constructor(private val clientService : C
 
         sync {
             withContext(Dispatchers.IO) {
-                val dataSource = Files.readAllBytes(File(Thread.currentThread().contextClassLoader.getResource("sad-cat.jpg").toURI()).toPath())
-                val encodedRequestHelp = Base64.getEncoder().encodeToString(dataSource)
+                val dataSource = Files.readAllLines(File(Thread.currentThread().contextClassLoader.getResource("request-information.txt").toURI()).toPath()).joinToString()
 
                 clientService.createClient()
                         .target(TrafficControlAndDetectionApplication.CONTROL_SYSTEM_URL + "/requesthelp")
-                        .request().post(Entity.json(RequestHelpInformation(encodedRequestHelp)))
+                        .request().post(Entity.json(RequestHelpInformation(dataSource)))
             }
 
             future.complete(null)

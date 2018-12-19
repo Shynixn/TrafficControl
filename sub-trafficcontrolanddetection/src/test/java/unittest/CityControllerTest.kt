@@ -1,5 +1,6 @@
 package unittest
 
+import at.jku.trafficcontrol.trafficcontrolanddetection.contract.AuthenticationService
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.CityService
 import at.jku.trafficcontrol.trafficcontrolanddetection.controller.CityController
 import at.jku.trafficcontrol.trafficcontrolanddetection.entity.City
@@ -10,7 +11,7 @@ import javax.ws.rs.core.Response
 class CityControllerTest {
     /**
      * Given
-     *      a mocked city
+     *      a mocked city and authorized user
      * When
      *      getCity is called
      * Then
@@ -23,7 +24,7 @@ class CityControllerTest {
         val expectedCity = City("MockedCity", "Springfield")
 
         // Act
-        val actualResponse = classUnderTest.getCity()
+        val actualResponse = classUnderTest.getCity("")
         val city = actualResponse.entity as City
 
         // Assert
@@ -32,14 +33,38 @@ class CityControllerTest {
         Assertions.assertEquals(expectedCity.displayName, city.displayName)
     }
 
+    /**
+     * Given
+     *      a mocked city and unauthorized user
+     * When
+     *      getCity is called
+     * Then
+     *     401 UnAuthorized should be returned.
+     */
+    @Test
+    fun getCity_MockedCityUnAuthorizedUser_ShouldReturn401UnAuthorized() {
+        // Arrange
+        val classUnderTest = createWithDependencies(MockedCityService(), MockedAuthenticationService(false))
+
+        // Act
+        val actualResponse = classUnderTest.getCity("")
+
+        // Assert
+        Assertions.assertEquals(Response.Status.UNAUTHORIZED, actualResponse.statusInfo)
+    }
+
     companion object {
-        fun createWithDependencies(cityService: CityService? = null): CityController {
-            if (cityService == null) {
-                return CityController(MockedCityService())
-            }
+        fun createWithDependencies(cityService: CityService = MockedCityService(), authenticationService: AuthenticationService = MockedAuthenticationService()): CityController {
+            return CityController(cityService, authenticationService)
+        }
+    }
 
-
-            return CityController()
+    class MockedAuthenticationService(private val authenticated: Boolean = true) : AuthenticationService {
+        /**
+         * Does the given [base64EncodedText] authorize a user?
+         */
+        override fun isAuthenticated(base64EncodedText: String?): Boolean {
+            return authenticated
         }
     }
 

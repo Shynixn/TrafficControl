@@ -27,8 +27,7 @@ class ControlSystemServiceTest {
     @Test
     fun requestHelp_MockedClient_ShouldPostCorrectPayload() {
         // Arrange
-        val dataSource = Files.readAllBytes(File(Thread.currentThread().contextClassLoader.getResource("sad-cat.jpg").toURI()).toPath())
-        val expectedResult = Base64.getEncoder().encodeToString(dataSource)
+        val expectedResult = Files.readAllLines(File(Thread.currentThread().contextClassLoader.getResource("request-information.txt").toURI()).toPath()).joinToString()
         var actualResult: RequestHelpInformation? = null
         val classUnderTest = createWithDependencies { entity ->
             actualResult = entity.entity as RequestHelpInformation
