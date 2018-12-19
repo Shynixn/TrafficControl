@@ -5,7 +5,7 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-docker kill $(docker ps -q)
+# docker kill $(docker ps -q)
 
 ./buildDocker.sh
 
