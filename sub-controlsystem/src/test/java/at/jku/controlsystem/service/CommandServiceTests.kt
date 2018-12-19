@@ -1,7 +1,5 @@
 package at.jku.controlsystem.service
 
-import at.jku.controlsystem.service.CommandApiService
-import at.jku.controlsystem.service.CommandApiServiceImpl
 import org.junit.jupiter.api.Test
 import javax.json.Json
 
@@ -12,16 +10,14 @@ class CommandServiceTests{
     }
 
     @Test
-    fun `Has method postBlockRoad that accepts JsonObject`(){
+    fun `Has method postBlockRoad that accepts JsonElement`(){
         val commandService: CommandApiService = CommandApiServiceImpl()
-        val requestBuilder = Json.createObjectBuilder()
-        commandService.postBlockRoad(requestBuilder.build())
+        commandService.postBlockRoad(Json.createObjectBuilder().build())
     }
 
     @Test
     fun `Has method postChangeTrafficLight that accepts JsonObject`(){
         val commandService: CommandApiService = CommandApiServiceImpl()
-        val requestBuilder = Json.createObjectBuilder()
-        commandService.postChangeTrafficLight(requestBuilder.build())
+        commandService.postBlockRoad(Json.createObjectBuilder().build())
     }
 }
