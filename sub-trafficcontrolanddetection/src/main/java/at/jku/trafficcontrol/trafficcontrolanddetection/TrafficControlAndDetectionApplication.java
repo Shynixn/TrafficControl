@@ -8,6 +8,8 @@ import javax.ws.rs.core.Application;
 @ApplicationPath("/trafficcontrolanddetection")
 @ApplicationScoped
 public class TrafficControlAndDetectionApplication extends Application {
+    public static final String CONTROL_SYSTEM_URL = "http://localhost:8084/controlsystem";
+
     /**
      * This is the startup method of this subsystem. It acts basically the same as
      * static.void.main(String[] args). A basic sample to code business logic is provided below.

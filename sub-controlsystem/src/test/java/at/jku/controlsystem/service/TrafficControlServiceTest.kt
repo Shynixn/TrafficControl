@@ -25,6 +25,14 @@ class TrafficControlServiceTest{
     }
 
     @Test
+    fun `Has method postCurrentTraffic that accepts JsonObject`(){
+        val trafficApiService = trafficApiFactory.getTrafficApiService()
+        val mockRequestBuilder = Json.createObjectBuilder()
+
+        trafficApiService.postCurrentTraffic(mockRequestBuilder.build())
+    }
+
+    @Test
     fun `Has method getTrafficCommands that returns JsonObject`(){
         val trafficApiService = trafficApiFactory.getTrafficApiService()
         val response: JsonObject = trafficApiService.getCurrentTraffic()
