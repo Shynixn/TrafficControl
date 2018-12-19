@@ -10,8 +10,4 @@ import javax.inject.Inject
 class TrafficApiFactory{
     @Inject
     lateinit var trafficApiService: TrafficApiServiceMock
-
-    fun getTrafficApiService(): TrafficApiService{
-        return trafficApiService
-    }
 }

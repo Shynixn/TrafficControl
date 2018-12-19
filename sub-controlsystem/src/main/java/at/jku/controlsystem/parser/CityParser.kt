@@ -78,7 +78,7 @@ class CityParser{
     fun fromJson(response: JsonObject): Street {
         initParser()
 
-        return if(response.getString("name") != null){
+        return if(response.getString("name", null) != null){
             readEdge(response)
         }else{
             throw ResponseIsCrossingException()

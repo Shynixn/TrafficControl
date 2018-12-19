@@ -6,6 +6,7 @@ import at.jku.controlsystem.contract.Street
 import org.junit.jupiter.api.Test
 import javax.json.JsonObject
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 
@@ -32,7 +33,7 @@ class CityParserTests{
     }
 
     @Test
-    fun `Parse with two streets and  crossings`(){
+    fun `Parse with two streets and two crossings`(){
         val street = Produce().defaultStreet()
         val crossing1 = street.startNode as Crossing
         val crossing2 = street.endNode as Crossing
@@ -50,6 +51,14 @@ class CityParserTests{
         assertEquals(street.endNode, parsedStreet.endNode)
         assertEquals(street2.endNode, parsedStreet.startNode)
         assertEquals(street2.startNode, parsedStreet.endNode)
+    }
+
+    @Test
+    fun `Parse crossing as root object`(){
+        val parsedStreet = CityParser().toJson(Produce().defaultStreet())
+        val nodeObject = parsedStreet.getJsonObject("startNode")
+
+        assertFailsWith(ResponseIsCrossingException::class) { CityParser().fromJson(nodeObject) }
     }
 
     private fun assertJsonIsStreet(jsonObject: JsonObject, street: Street) {
