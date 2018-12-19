@@ -11,9 +11,8 @@ import javax.json.JsonObject
 @RequestScoped
 @Default
 class TrafficApiServiceMock: TrafficApiService{
-    companion object {
-        lateinit var cityMock: JsonObject
-    }
+
+    var cityMock: JsonObject
 
     init {
         val nodes = mutableListOf(
