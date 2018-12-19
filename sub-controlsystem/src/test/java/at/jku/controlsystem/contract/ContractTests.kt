@@ -1,67 +1,24 @@
 package at.jku.controlsystem.contract
 
+import at.jku.controlsystem.Produce
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 import kotlin.test.assertNotNull
 
 class ContractTests{
-    fun produceDefaultStreet(): Street{
-        val name = "Street McStreetface"
-        val defaultTrafficRate = 1.0
-        val defaultSpeed = 1.0
-        val startNode = Crossing()
-        val endNode = Crossing()
 
-        return Street(
-                name,
-                defaultTrafficRate,
-                defaultTrafficRate,
-                defaultSpeed,
-                defaultSpeed,
-                startNode,
-                endNode
-        )
-    }
 
     @Test
     fun `Street initializeable and is Edge`(){
-        val name = "Street McStreetface"
-        val defaultTrafficRate = 1.0
-        val defaultSpeed = 1.0
-        val startNode = Crossing()
-        val endNode = Crossing()
-
-        val street = Street(
-                name,
-                defaultTrafficRate,
-                defaultTrafficRate,
-                defaultSpeed,
-                defaultSpeed,
-                startNode,
-                endNode
-        )
+        val street = Produce().defaultStreet()
 
         assert(street is Edge)
     }
 
     @Test
     fun `Street has all properties`(){
-        val name = "Street McStreetface"
-        val defaultTrafficRate = 1.0
-        val defaultSpeed = 1.0
-        val startNode = Crossing()
-        val endNode = Crossing()
-
-        val street = Street(
-                name,
-                defaultTrafficRate,
-                defaultTrafficRate,
-                defaultSpeed,
-                defaultSpeed,
-                startNode,
-                endNode
-        )
+        val street = Produce().defaultStreet()
 
         assertNotNull(street.startNode)
         assertNotNull(street.endNode)
@@ -71,14 +28,14 @@ class ContractTests{
         assertNotNull(street.currentSpeed)
         assertNotNull(street.defaultSpeed)
 
-        assertEquals(0, startNode.edges.size)
-        assertEquals(0, endNode.edges.size)
+        assertEquals(0, street.startNode!!.edges.size)
+        assertEquals(0, street.endNode!!.edges.size)
     }
 
     @Test
     fun `Same street is equal`(){
-        val street1 = produceDefaultStreet()
-        val street2 = produceDefaultStreet()
+        val street1 = Produce().defaultStreet()
+        val street2 = Produce().defaultStreet()
 
         street2.name = "Streety McStreetface 2"
 

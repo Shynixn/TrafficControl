@@ -36,14 +36,18 @@ class CityParser{
         if (crossingIdMap.containsKey(rootEdge.startNode)) {
             jsonObjectBuilder.add("startNode", crossingIdMap[rootEdge.startNode]!!)
         } else {
-            jsonObjectBuilder.add("startNode", parseNode(rootEdge.startNode as Crossing))
+            if(rootEdge.startNode != null){
+                jsonObjectBuilder.add("startNode", parseNode(rootEdge.startNode as Crossing))
+            }
         }
 
         if (rootEdge.endNode != null) {
             if (crossingIdMap.containsKey(rootEdge.endNode)) {
                 jsonObjectBuilder.add("endNode", crossingIdMap[rootEdge.endNode]!!)
             } else {
-                jsonObjectBuilder.add("endNode", parseNode(rootEdge.endNode!! as Crossing))
+                if(rootEdge.endNode != null) {
+                    jsonObjectBuilder.add("endNode", parseNode(rootEdge.endNode!! as Crossing))
+                }
             }
         }
 
@@ -77,7 +81,7 @@ class CityParser{
         return if(response.getString("name") != null){
             readEdge(response)
         }else{
-            readNode(response).edges[0] as Street
+            throw ResponseIsCrossingException()
         }
     }
 
