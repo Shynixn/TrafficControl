@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./controls.component.sass']
 })
 export class ControlsComponent implements OnInit {
-  subsystemsOnline = [true, false, true, false];
-  streetNames = ["Linzer Straße", "Johann-Wilhelm-Klein Straße", "Tranquility Lane", "Lil' Marco"];
-  blockSelection = [100, 50, 25, 0];
-  trafficLight = ["green", "red"];
+  public subsystemsOnline = [true, false, true, false];
+  public streetNames = ["Linzer Straße", "Johann-Wilhelm-Klein Straße", "Tranquility Lane", "Lil' Marco"];
+  public blockSelection = [100, 50, 25, 0];
+  public trafficLight = ["green", "red"];
 
   constructor() { }
 
