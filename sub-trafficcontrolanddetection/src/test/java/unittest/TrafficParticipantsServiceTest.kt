@@ -1,13 +1,13 @@
 package unittest
 
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.ClientService
+import at.jku.trafficcontrol.trafficcontrolanddetection.contract.LoggingService
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.TrafficParticipantsService
 import at.jku.trafficcontrol.trafficcontrolanddetection.entity.TrafficInformation
 import at.jku.trafficcontrol.trafficcontrolanddetection.service.TrafficParticipantsServiceImpl
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
-import org.slf4j.Logger
 import javax.ws.rs.client.Client
 import javax.ws.rs.client.Invocation
 import javax.ws.rs.client.WebTarget
@@ -107,7 +107,7 @@ class TrafficParticipantsServiceTest {
             val result = arrayListOf(TrafficInformation(1, 20), TrafficInformation(2, 30), TrafficInformation(3, 0))
             Response.ok(result).build()
         }): TrafficParticipantsService {
-            val logger = Mockito.mock(Logger::class.java)
+            val logger = Mockito.mock(LoggingService::class.java)
 
             return TrafficParticipantsServiceImpl(MockedClientService(function!!), logger)
         }

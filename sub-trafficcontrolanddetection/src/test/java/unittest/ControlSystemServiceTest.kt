@@ -2,6 +2,7 @@ package unittest
 
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.ClientService
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.ControlSystemService
+import at.jku.trafficcontrol.trafficcontrolanddetection.contract.LoggingService
 import at.jku.trafficcontrol.trafficcontrolanddetection.entity.RequestHelpInformation
 import at.jku.trafficcontrol.trafficcontrolanddetection.service.ControlSystemServiceImpl
 import org.junit.jupiter.api.Assertions
@@ -67,7 +68,7 @@ class ControlSystemServiceTest {
 
     companion object {
         fun createWithDependencies(function: (Entity<*>) -> Response): ControlSystemService {
-            val logger = Mockito.mock(Logger::class.java)
+            val logger = Mockito.mock(LoggingService::class.java)
 
             return ControlSystemServiceImpl(MockedClientService(function), logger)
         }

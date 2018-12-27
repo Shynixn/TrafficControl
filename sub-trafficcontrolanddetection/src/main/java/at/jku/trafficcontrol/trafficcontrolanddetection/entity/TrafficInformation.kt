@@ -1,5 +1,8 @@
 package at.jku.trafficcontrol.trafficcontrolanddetection.entity
 
+/**
+ * Traffic information.
+ */
 class TrafficInformation(
         /**
          * Id of the street.

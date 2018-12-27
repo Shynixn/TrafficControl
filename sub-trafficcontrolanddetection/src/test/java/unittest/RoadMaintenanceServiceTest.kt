@@ -1,7 +1,9 @@
 package unittest
 
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.ClientService
+import at.jku.trafficcontrol.trafficcontrolanddetection.contract.LoggingService
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.RoadMaintenanceService
+import at.jku.trafficcontrol.trafficcontrolanddetection.entity.Node
 import at.jku.trafficcontrol.trafficcontrolanddetection.entity.Street
 import at.jku.trafficcontrol.trafficcontrolanddetection.service.RoadMaintenanceServiceImpl
 import org.junit.jupiter.api.Assertions
@@ -25,7 +27,7 @@ class RoadMaintenanceServiceTest {
     @Test
     fun reportAmountOfCars_MockedClient_ShouldSendCorrectPayload() {
         // Arrange
-        val streets = arrayListOf(Street(2), Street(3), Street(4))
+        val streets = arrayListOf(Street(2, Node(1), Node(1)), Street(3, Node(1), Node(1)), Street(4, Node(1), Node(1)))
         val classUnderTest = createWithDependencies()
 
         // Act
@@ -46,7 +48,7 @@ class RoadMaintenanceServiceTest {
     @Test
     fun reportAmountOfCars_MockedFailingClient_ShouldFailSendingPayload() {
         // Arrange
-        val streets = arrayListOf(Street(2), Street(3), Street(4))
+        val streets = arrayListOf(Street(2, Node(1), Node(1)), Street(3, Node(1), Node(1)), Street(4, Node(1), Node(1)))
         val classUnderTest = createWithDependencies {
             Response.status(Response.Status.BAD_REQUEST).build()
         }
@@ -69,7 +71,7 @@ class RoadMaintenanceServiceTest {
     @Test
     fun reportBlockStreets_MockedClient_ShouldSendCorrectPayload() {
         // Arrange
-        val streets = arrayListOf(Street(2), Street(3), Street(4))
+        val streets = arrayListOf(Street(2, Node(1), Node(1)), Street(3, Node(1), Node(1)), Street(4, Node(1), Node(1)))
         val classUnderTest = createWithDependencies()
 
         // Act
@@ -90,7 +92,7 @@ class RoadMaintenanceServiceTest {
     @Test
     fun reportBlockStreets_MockedFailingClient_ShouldFailSendingPayload() {
         // Arrange
-        val streets = arrayListOf(Street(2), Street(3), Street(4))
+        val streets = arrayListOf(Street(2, Node(1), Node(1)), Street(3, Node(1), Node(1)), Street(4, Node(1), Node(1)))
         val classUnderTest = createWithDependencies {
             Response.status(Response.Status.BAD_REQUEST).build()
         }
@@ -106,7 +108,7 @@ class RoadMaintenanceServiceTest {
         fun createWithDependencies(function: (() -> Response)? = {
             Response.ok().build()
         }): RoadMaintenanceService {
-            val logger = Mockito.mock(Logger::class.java)
+            val logger = Mockito.mock(LoggingService::class.java)
 
             return RoadMaintenanceServiceImpl(MockedClientService(function!!), logger)
         }

@@ -2,13 +2,15 @@ package at.jku.trafficcontrol.trafficcontrolanddetection.service
 
 import at.jku.trafficcontrol.trafficcontrolanddetection.TrafficControlAndDetectionApplication
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.ClientService
+import at.jku.trafficcontrol.trafficcontrolanddetection.contract.LoggingService
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.RoadMaintenanceService
 import at.jku.trafficcontrol.trafficcontrolanddetection.entity.Street
 import at.jku.trafficcontrol.trafficcontrolanddetection.extension.sync
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.slf4j.Logger
 import java.util.concurrent.CompletableFuture
+import javax.enterprise.context.ApplicationScoped
+import javax.enterprise.inject.Default
 import javax.inject.Inject
 import javax.ws.rs.client.Entity
 import javax.ws.rs.core.Response
@@ -16,7 +18,9 @@ import javax.ws.rs.core.Response
 /**
  * Road Maintenance.
  */
-class RoadMaintenanceServiceImpl @Inject constructor(private val clientService: ClientService, private val logger: Logger) : RoadMaintenanceService {
+@Default
+@ApplicationScoped
+class RoadMaintenanceServiceImpl @Inject constructor(private val clientService: ClientService, private val logger: LoggingService) : RoadMaintenanceService {
     /**
      * Reports the amount of cars driven on street since the last report.
      */

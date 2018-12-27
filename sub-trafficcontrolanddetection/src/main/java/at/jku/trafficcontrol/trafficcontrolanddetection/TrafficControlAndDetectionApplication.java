@@ -1,7 +1,10 @@
 package at.jku.trafficcontrol.trafficcontrolanddetection;
 
+import at.jku.trafficcontrol.trafficcontrolanddetection.contract.TrafficEventSchedulingService;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.spi.CDI;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
@@ -19,5 +22,7 @@ public class TrafficControlAndDetectionApplication extends Application {
     @PostConstruct
     public void onStartup() {
         System.out.println("Hello World!");
+
+        CDI.current().select(TrafficEventSchedulingService.class).get().schedule();
     }
 }

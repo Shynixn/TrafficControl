@@ -46,6 +46,26 @@ class AuthenticationServiceTest {
         Assertions.assertFalse(isAuthorized)
     }
 
+    /**
+     * Given
+     *      a null base64 payload
+     * When
+     *      isAuthenticated is called
+     * Then
+     *     False should be returned.
+     */
+    @Test
+    fun isAuthenticated_NullPayload_ShouldReturnFalse() {
+        // Arrange
+        val classUnderTest = createWithDependencies()
+
+        // Act
+        val isAuthorized = classUnderTest.isAuthenticated(null)
+
+        // Assert
+        Assertions.assertFalse(isAuthorized)
+    }
+
     companion object {
         fun createWithDependencies(): AuthenticationService {
             return AuthenticationServiceImpl()
