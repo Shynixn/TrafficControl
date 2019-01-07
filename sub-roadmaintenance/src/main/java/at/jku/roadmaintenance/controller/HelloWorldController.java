@@ -21,6 +21,6 @@ public class HelloWorldController {
     @GET
     @Produces("text/plain")
     public Response doGet() {
-        return Response.ok("Hello from RoadMaintenance!").build();
+        return Response.ok("Hello from RoadMaintenance test!").build();
     }
 }
