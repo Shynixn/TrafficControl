@@ -1,67 +1,113 @@
-<div class="container-fluid">
+<div *ngIf="username == undefined">
+  <p class="card-text">Please login first to access the tools.</p>
   <div class="row">
     <div class="col">
-      <button class="btn btn-outline-primary btn-block">Login</button>
+      <button class="btn btn-outline-primary btn-block" data-toggle="modal" data-target="#loginModal">Login</button>
     </div>
   </div>
-  <div class="row">
-    <div *ngFor="let online of this.subsystemsOnline; let i = index"
-         class="col" [ngClass]="{'bg-success': online, 'bg-danger': !online}">
-      Subsystem {{i+1}}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="dropdown">
-        <button class="btn btn-block dropdown-toggle" type="button" id="streetNameButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Street
-        </button>
-        <div class="dropdown-menu" aria-labelledby="streetNameButton">
-          <button class="dropdown-item" href="#" *ngFor="let streetName of this.streetNames">{{streetName}}</button>
+  <div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Login</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="usr">Name:</label>
+              <input type="text" [(ngModel)]="tmpUsername" name="username" class="form-control" id="usr">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" [(ngModel)]="tmpPassword" name="password" class="form-control" id="pwd">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success"
+                  (click)="this.password = this.tmpPassword;this.username = this.tmpUsername; login()"
+                  data-dismiss="modal">Login
+          </button>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="dropdown">
-        <button class="btn btn-block dropdown-toggle" type="button" id="blockSelectionButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Block Percentage
-        </button>
-        <div class="dropdown-menu" aria-labelledby="blockSelectionButton">
-          <button class="dropdown-item" href="#" *ngFor="let blockPercentage of this.blockSelection">{{blockPercentage}}</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="dropdown">
-        <button class="btn btn-block dropdown-toggle" type="button" id="trafficLightButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Set Traffic Light
-        </button>
-        <div class="dropdown-menu" aria-labelledby="trafficLightButton">
-          <button class="dropdown-item text-white" [ngClass]="{'bg-success': trafficlight == 'green', 'bg-danger': trafficlight == 'red'}"  href="#" *ngFor="let trafficlight of this.trafficLight">{{trafficlight}}</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Speedlimit</span>
-        </div>
-        <input type="number" class="form-control" aria-label="Speedlimit (in km/h)" min="0">
-        <div class="input-group-append">
-          <span class="input-group-text">km/h</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <button class="btn btn-block btn-secondary">Apply</button>
     </div>
   </div>
 </div>
+<div *ngIf="username != undefined">
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let online of this.subsystemsOnline; let i = index"
+           class="col">
+        <div class="card" style="background: #00a300">
+          <div class="card-body" style="color: white">
+            {{i+1}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="dropdown">
+          <button class="btn btn-block dropdown-toggle" type="button" id="streetNameButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+            Street
+          </button>
+          <div class="dropdown-menu" aria-labelledby="streetNameButton">
+            <button class="dropdown-item" href="#" *ngFor="let streetName of this.streetNames">{{streetName}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="dropdown">
+          <button class="btn btn-block dropdown-toggle" type="button" id="blockSelectionButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+            Block Percentage
+          </button>
+          <div class="dropdown-menu" aria-labelledby="blockSelectionButton">
+            <button class="dropdown-item" href="#" *ngFor="let blockPercentage of this.blockSelection">
+              {{blockPercentage}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="dropdown">
+          <button class="btn btn-block dropdown-toggle" type="button" id="trafficLightButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+            Set Traffic Light
+          </button>
+          <div class="dropdown-menu" aria-labelledby="trafficLightButton">
+            <button class="dropdown-item text-white"
+                    [ngClass]="{'bg-success': trafficlight == 'green', 'bg-danger': trafficlight == 'red'}" href="#"
+                    *ngFor="let trafficlight of this.trafficLight">{{trafficlight}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Speedlimit</span>
+          </div>
+          <input type="number" class="form-control" aria-label="Speedlimit (in km/h)" min="0">
+          <div class="input-group-append">
+            <span class="input-group-text">km/h</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-block btn-secondary">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>
+
