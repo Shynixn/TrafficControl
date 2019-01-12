@@ -1,9 +1,8 @@
 package at.jku.controlsystem.service
 
 import javax.enterprise.context.RequestScoped
-import javax.json.Json
+import javax.enterprise.inject.Default
 import javax.json.JsonObject
-import javax.ws.rs.client.Client
 import javax.ws.rs.client.ClientBuilder
 import javax.ws.rs.core.MediaType
 
@@ -11,6 +10,7 @@ import javax.ws.rs.core.MediaType
  * Api to communicate with Traffic Control and Detection
  */
 @RequestScoped
+@Default
 class TrafficApiServiceImpl : TrafficApiService{
 
     /**
