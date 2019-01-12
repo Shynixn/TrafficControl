@@ -1,13 +1,16 @@
 package at.jku.roadmaintenance;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class Incident {
 
 	private Status status;
 	private Type type;
 	private Priority priority;
-	private Calendar created;
+	private LocalDate created;
+	private LocalDate begin;
+	private LocalDate end;
 	
 	private ArrayList<RoadSegment> affectedRoadSegments;
 	private ArrayList<Unit> assignedUnits;
@@ -22,7 +25,7 @@ public class Incident {
 		this.status = Status.CREATED;
 		this.type = type;
 		this.priority = priority;
-		this.created = Calendar.getInstance();
+		this.created = LocalDate.now();
 		this.assignee = assignee;
 		this.affectedRoadSegments = new ArrayList();
 		this.assignedUnits = new ArrayList();
@@ -37,28 +40,41 @@ public class Incident {
 		this.assignedUnits.add(unit);
 	}
 	
+	public void setBeginDate(LocalDate begin) {
+		this.begin = begin;
+	}
+	
+	public void setEndDate(LocalDate end) {
+		this.end = end;
+	}
+	
 	public Priority getPriority() {
 		return this.priority;
 	}
 	
 	public boolean dispatchIncident() {
+		
 		//all information and resources available?
-		
-		for (Unit u : this.assignedUnits)
-		{
-			if (Resources.getQuantity(u.getName()) < u.getQuantity())
-				return false;
+		if ((this.begin != null) && (this.end != null) &&
+			(this.affectedRoadSegments != null) && (this.assignedUnits != null)) {
+				
+			for (Unit u : this.assignedUnits)
+			{
+				if (Resources.getQuantity(u.getName()) < u.getQuantity())
+					return false;
+			}
+			for (Unit u : this.assignedUnits)
+			{
+				Resources.withdrawResources(u.getName(), u.getQuantity());
+			}
+			
+			//inform CS module
+			//inform TP module
+			this.status = Status.IN_PROGESS;		
+			return true;
 		}
-		for (Unit u : this.assignedUnits)
-		{
-			Resources.withdrawResources(u.getName(), u.getQuantity());
-		}
 		
-		//inform CS module
-		//inform TP module
-		this.status = Status.IN_PROGESS;
-		
-		return true;
+		return false;
 	}
 	
 	public boolean pauseIncident() {
@@ -90,12 +106,16 @@ public class Incident {
 	}
 	
 	public String toString() {
+		
 		String result = "";
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyy");
 		
 		result += "Status " + this.status + " - Type " + this.type + " - Priority " + this.priority + "\n";
 		result += "Responsible staff member: " + this.assignee + "\n";
-		result += " \n";
-		result += "Affected road segments: \n";
+		result += "Created: " + dtf.format(this.created) +  "\n";
+		result += "Begin: " + dtf.format(this.begin) +  "\n";
+		result += "End: " + dtf.format(this.end) +  "\n";
+		result += "Affected road segments: \n\n";
 		
 		for (RoadSegment seg : this.affectedRoadSegments) {
 			result += seg + "\n";
