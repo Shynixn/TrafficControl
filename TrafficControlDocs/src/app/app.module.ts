@@ -9,6 +9,9 @@ import { DocumentationNavComponent } from './documentation-nav/documentation-nav
 import { IntelijConfigurationsComponent } from './documentation/intelij-configurations/intelij-configurations.component';
 import {APP_BASE_HREF} from "@angular/common";
 import {environment} from "../environments/environment";
+import { TrafficcontrolComponent } from './trafficcontrol/trafficcontrol.component';
+import { ControlsComponent } from './trafficcontrol/controls/controls.component';
+import { RenderComponent } from './trafficcontrol/render/render.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import {environment} from "../environments/environment";
     WelcomeComponent,
     DocumentationComponent,
     DocumentationNavComponent,
-    IntelijConfigurationsComponent
+    IntelijConfigurationsComponent,
+    TrafficcontrolComponent,
+    ControlsComponent,
+    RenderComponent
   ],
   imports: [
     BrowserModule,

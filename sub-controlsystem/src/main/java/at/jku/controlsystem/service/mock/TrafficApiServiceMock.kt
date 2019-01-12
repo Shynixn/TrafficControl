@@ -2,29 +2,26 @@ package at.jku.controlsystem.service.mock
 
 import at.jku.controlsystem.contract.Crossing
 import at.jku.controlsystem.contract.Street
+import at.jku.controlsystem.parser.CityParser
 import at.jku.controlsystem.service.TrafficApiService
 import javax.enterprise.context.RequestScoped
-import javax.json.Json
+import javax.enterprise.inject.Default
 import javax.json.JsonObject
 
 @RequestScoped
+@Default
 class TrafficApiServiceMock: TrafficApiService{
-    companion object {
-        lateinit var cityMock: JsonObject
-    }
+
+    var cityMock: JsonObject
 
     init {
-        val jsonObjectBuilder = Json.createObjectBuilder()
-        val nodesBuilder = Json.createArrayBuilder()
-        val edgesBuilder = Json.createArrayBuilder()
-
-        val nodes = mutableListOf<Crossing>(
+        val nodes = mutableListOf(
                 Crossing(),
                 Crossing(),
                 Crossing(),
                 Crossing()
         )
-        for(i in 0 until nodes.size){
+        for(i in 0 until nodes.size-1){
             val edge1 = Street(
                     "Street ${i}.1",
                     1.0,
@@ -48,11 +45,12 @@ class TrafficApiServiceMock: TrafficApiService{
             nodes[i+1].edges.add(edge1)
             nodes[i+1].edges.add(edge2)
         }
+
+        cityMock = CityParser().toJson(nodes[0].edges[0] as Street)
     }
 
     override fun getCurrentTraffic(): JsonObject {
-        val jsonObjectBuilder = Json.createObjectBuilder()
-        return jsonObjectBuilder.build()
+        return cityMock
     }
 
 }
