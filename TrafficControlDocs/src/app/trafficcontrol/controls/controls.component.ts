@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'trafficcontrol-controls',
@@ -11,9 +11,10 @@ export class ControlsComponent implements OnInit {
   public blockSelection = [100, 50, 25, 0];
   public trafficLight = ["green", "red"];
 
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
-
 }

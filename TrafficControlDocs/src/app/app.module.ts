@@ -12,6 +12,7 @@ import {environment} from "../environments/environment";
 import { TrafficcontrolComponent } from './trafficcontrol/trafficcontrol.component';
 import { ControlsComponent } from './trafficcontrol/controls/controls.component';
 import { RenderComponent } from './trafficcontrol/render/render.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RenderComponent } from './trafficcontrol/render/render.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
