@@ -2,10 +2,13 @@ package unittest
 
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.ClientService
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.ControlSystemService
+import at.jku.trafficcontrol.trafficcontrolanddetection.contract.LoggingService
 import at.jku.trafficcontrol.trafficcontrolanddetection.entity.RequestHelpInformation
 import at.jku.trafficcontrol.trafficcontrolanddetection.service.ControlSystemServiceImpl
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import org.mockito.Mockito
+import org.slf4j.Logger
 import java.io.File
 import java.net.URI
 import java.nio.file.Files
@@ -41,9 +44,33 @@ class ControlSystemServiceTest {
         Assertions.assertEquals(expectedResult, actualResult!!.payload)
     }
 
+    /**
+     * Given
+     *  a failing mocked client
+     * When
+     *   a requestHelp is called
+     * Then
+     *   a call to controlSystem should be sent.
+     */
+    @Test
+    fun requestHelp_MockedFailingClient_ShouldTryPost() {
+        // Arrange
+        val classUnderTest = createWithDependencies { _ ->
+            Response.status(Response.Status.BAD_REQUEST).build()
+        }
+
+        // Act
+        val actualResult = classUnderTest.requestHelp().get()
+
+        // Assert
+        Assertions.assertEquals(null, actualResult)
+    }
+
     companion object {
         fun createWithDependencies(function: (Entity<*>) -> Response): ControlSystemService {
-            return ControlSystemServiceImpl(MockedClientService(function))
+            val logger = Mockito.mock(LoggingService::class.java)
+
+            return ControlSystemServiceImpl(MockedClientService(function), logger)
         }
     }
 

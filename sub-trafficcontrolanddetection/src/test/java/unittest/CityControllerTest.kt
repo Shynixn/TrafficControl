@@ -6,6 +6,7 @@ import at.jku.trafficcontrol.trafficcontrolanddetection.controller.CityControlle
 import at.jku.trafficcontrol.trafficcontrolanddetection.entity.City
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import java.util.concurrent.CompletableFuture
 import javax.ws.rs.core.Response
 
 class CityControllerTest {
@@ -76,6 +77,13 @@ class CityControllerTest {
          */
         override fun getMainCity(): City {
             return city
+        }
+
+        /**
+         * Refreshes the state of the city with the latest collected information of traffic participants.
+         */
+        override fun refreshCityTrafficParticipants(): CompletableFuture<Void?> {
+            return CompletableFuture()
         }
     }
 }

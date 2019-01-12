@@ -1,7 +1,10 @@
 package at.jku.trafficcontrol.trafficcontrolanddetection;
 
+import at.jku.trafficcontrol.trafficcontrolanddetection.contract.TrafficEventSchedulingService;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.spi.CDI;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
@@ -9,6 +12,8 @@ import javax.ws.rs.core.Application;
 @ApplicationScoped
 public class TrafficControlAndDetectionApplication extends Application {
     public static final String CONTROL_SYSTEM_URL = "http://localhost:8084/controlsystem";
+    public static final String TRAFFIC_PARTICIPANTS_SYSTEM_URL = "http://localhost:8081/trafficparticiapnts";
+    public static final String ROADMAINTENANCE_SYSTEM_URL = "http://localhost:8081/roadmaintenance";
 
     /**
      * This is the startup method of this subsystem. It acts basically the same as
@@ -17,5 +22,7 @@ public class TrafficControlAndDetectionApplication extends Application {
     @PostConstruct
     public void onStartup() {
         System.out.println("Hello World!");
+
+        CDI.current().select(TrafficEventSchedulingService.class).get().schedule();
     }
 }

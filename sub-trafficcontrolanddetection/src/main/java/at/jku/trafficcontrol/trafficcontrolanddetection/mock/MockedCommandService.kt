@@ -3,10 +3,10 @@ package at.jku.trafficcontrol.trafficcontrolanddetection.mock
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.CommandService
 import at.jku.trafficcontrol.trafficcontrolanddetection.entity.Command
 import javax.enterprise.context.ApplicationScoped
-import javax.enterprise.inject.Default
+import javax.enterprise.inject.Alternative
 import javax.inject.Inject
 
-@Default
+@Alternative
 @ApplicationScoped
 class MockedCommandService @Inject constructor(): CommandService {
     /**

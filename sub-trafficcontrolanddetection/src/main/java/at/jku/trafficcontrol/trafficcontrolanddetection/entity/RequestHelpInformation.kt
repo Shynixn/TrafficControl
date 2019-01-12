@@ -1,5 +1,8 @@
 package at.jku.trafficcontrol.trafficcontrolanddetection.entity
 
+/**
+ * Help payload.
+ */
 class RequestHelpInformation(
         /**
          * Request help payload.

@@ -129,6 +129,9 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.2</version>
+                <configuration>
+                    <excludes>at.jku.trafficcontrol.trafficcontrolanddetection.mock.*</excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
