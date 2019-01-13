@@ -1,4 +1,6 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {forEach} from "@angular/router/src/utils/collection";
+import {findNode} from "@angular/compiler";
 
 @Component({
   selector: 'trafficcontrol-render',
@@ -6,6 +8,17 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
   styleUrls: ['./render.component.sass']
 })
 export class RenderComponent implements OnInit, AfterViewInit {
+  private _city: object = null;
+
+  @Input() set city(city: object){
+    this._city = city;
+
+    this.redrawCity();
+  }
+
+  get city(){
+    return this._city;
+  }
 
   @ViewChild("canvasStreet")
   public canvasStreet: ElementRef;
@@ -24,6 +37,39 @@ export class RenderComponent implements OnInit, AfterViewInit {
     let size = 50;
 
     this.drawMesh(maxY, maxX, size);
+  }
+
+  private redrawCity(){
+    if(this.city != null) {
+      const width = this.canvasStreet.nativeElement.width;
+      const height = this.canvasStreet.nativeElement.height;
+      const nodes = this.city["nodes"];
+      const edges = this.city["edges"];
+
+      this.context.clearRect(0, 0, width, height);
+
+      let x = 100;
+      let y = 100;
+
+      for(let i = 0; i < edges.length; i++){
+        // let startNode = findNode(nodes, edges[i].startNode.id);
+        // let endNode = findNode(nodes, edges[i].endNode.id);
+
+        this.drawEllipse(x, y);
+        this.drawLineFromTo([x,y], [x+100, y]);
+        this.drawEllipse(x+100, y);
+      }
+    }
+  }
+
+  private findNode(nodes: object[], id: number): object{
+    for(let i = 0; i < nodes.length; i++){
+      if(nodes[i]["id"] == id){
+        return nodes[i];
+      }
+    }
+
+    return null;
   }
 
   private drawMesh(maxY: number, maxX: number, size: number, xOffset: number = 0, yOffset: number = 0) {

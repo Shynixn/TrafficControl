@@ -13,6 +13,7 @@ import { RenderComponent } from './trafficcontrol/render/render.component';
 import { FormsModule } from '@angular/forms';
 import {LoginService} from "./service/login.service";
 import {HttpClientModule} from "@angular/common/http";
+import {CityService} from "./service/city.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule
   ],
   providers: [
-    LoginService
+    LoginService,
+    CityService
   ],
   bootstrap: [AppComponent]
 })

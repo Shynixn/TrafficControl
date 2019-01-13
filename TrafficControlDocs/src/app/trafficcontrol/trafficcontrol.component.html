@@ -8,14 +8,14 @@
             <div class="card-body">
               <h4 class="card-title">Traffic Controller</h4>
               <h6 class="card-subtitle mb-2 text-muted">Realtime city management tool</h6>
-              <trafficcontrol-controls></trafficcontrol-controls>
+              <trafficcontrol-controls (city)="onCityLoaded($event)"></trafficcontrol-controls>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col-7">
-      <trafficcontrol-render></trafficcontrol-render>
+      <trafficcontrol-render [city]="city"></trafficcontrol-render>
     </div>
   </div>
 </div>
