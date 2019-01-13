@@ -12,7 +12,7 @@ class PathCalculator: Runnable{
     private lateinit var trafficApiServiceFactory: TrafficApiFactory
 
     private val trafficApiService
-        get() = trafficApiServiceFactory.trafficApiService
+        get() = trafficApiServiceFactory.getTrafficApiService()
 
     override fun run() {
         //Calculate best path

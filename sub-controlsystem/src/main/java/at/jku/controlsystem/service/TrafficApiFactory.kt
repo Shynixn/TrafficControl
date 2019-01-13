@@ -1,13 +1,28 @@
 package at.jku.controlsystem.service
 
-import at.jku.controlsystem.service.mock.TrafficApiServiceMock
 import javax.enterprise.context.RequestScoped
 import javax.enterprise.inject.Default
 import javax.inject.Inject
 
 @RequestScoped
 @Default
-class TrafficApiFactory{
+open class TrafficApiFactory{
+    constructor(){
+
+    }
+
+    constructor(trafficApiService: TrafficApiService){
+        this.trafficApiService = trafficApiService
+    }
+
     @Inject
-    lateinit var trafficApiService: TrafficApiServiceMock
+    private lateinit var trafficApiService: TrafficApiService
+
+    open fun getTrafficApiService(): TrafficApiService{
+        return trafficApiService;
+    }
+
+    open fun setTrafficApiSerivce(trafficApiService: TrafficApiService) {
+        this.trafficApiService = trafficApiService
+    }
 }

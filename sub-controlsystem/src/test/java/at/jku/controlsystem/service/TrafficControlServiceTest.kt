@@ -17,23 +17,23 @@ class TrafficControlServiceTest{
     @BeforeEach
     fun initialize(){
         trafficApiFactory = TrafficApiFactory()
-        trafficApiFactory.trafficApiService = TrafficApiServiceMock()
+        trafficApiFactory.setTrafficApiSerivce(TrafficApiServiceMock());
     }
 
     @Test
     fun `Is initializeable and has interface`() {
-        assert(trafficApiFactory.trafficApiService is TrafficApiService)
+        assert(trafficApiFactory.getTrafficApiService() is TrafficApiService)
     }
 
     @Test
     fun `Has method postCurrentTraffic that accepts JsonObject`(){
-        val trafficApiService = trafficApiFactory.trafficApiService
+        val trafficApiService = trafficApiFactory.getTrafficApiService()
         val mockRequestBuilder = Json.createObjectBuilder()
     }
 
     @Test
     fun `Has method getTrafficCommands that returns JsonObject`(){
-        val trafficApiService = trafficApiFactory.trafficApiService
+        val trafficApiService = trafficApiFactory.getTrafficApiService()
         val response: JsonObject = trafficApiService.getCurrentTraffic()
 
         assertNotNull(response)
@@ -41,7 +41,7 @@ class TrafficControlServiceTest{
 
     @Test
     fun `getTrafficCommands is parseable to Street`(){
-        val trafficApiService = trafficApiFactory.trafficApiService
+        val trafficApiService = trafficApiFactory.getTrafficApiService()
         val response: JsonObject = trafficApiService.getCurrentTraffic()
         val rootStreet = CityParser().fromJson(response)
 
