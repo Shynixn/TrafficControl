@@ -1,4 +1,4 @@
-<div *ngIf="username == undefined">
+<div *ngIf="isLoggedIn == false">
   <p class="card-text">Please login first to access the tools.</p>
   <div class="row">
     <div class="col">
@@ -16,17 +16,17 @@
           <form>
             <div class="form-group">
               <label for="usr">Name:</label>
-              <input type="text" [(ngModel)]="tmpUsername" name="username" class="form-control" id="usr">
+              <input type="text" [(ngModel)]="username" name="username" class="form-control" id="usr">
             </div>
             <div class="form-group">
               <label for="pwd">Password:</label>
-              <input type="password" [(ngModel)]="tmpPassword" name="password" class="form-control" id="pwd">
+              <input type="password" [(ngModel)]="password" name="password" class="form-control" id="pwd">
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-success"
-                  (click)="this.password = this.tmpPassword;this.username = this.tmpUsername; login()"
+                  (click)="login()"
                   data-dismiss="modal">Login
           </button>
         </div>
@@ -34,7 +34,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="username != undefined">
+<div *ngIf="isLoggedIn == true">
   <div class="container-fluid">
     <div class="row">
       <div *ngFor="let online of this.subsystemsOnline; let i = index"

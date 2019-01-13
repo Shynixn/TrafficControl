@@ -7,12 +7,12 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { DocumentationComponent } from './documentation/documentation.component';
 import { DocumentationNavComponent } from './documentation-nav/documentation-nav.component';
 import { IntelijConfigurationsComponent } from './documentation/intelij-configurations/intelij-configurations.component';
-import {APP_BASE_HREF} from "@angular/common";
-import {environment} from "../environments/environment";
 import { TrafficcontrolComponent } from './trafficcontrol/trafficcontrol.component';
 import { ControlsComponent } from './trafficcontrol/controls/controls.component';
 import { RenderComponent } from './trafficcontrol/render/render.component';
 import { FormsModule } from '@angular/forms';
+import {LoginService} from "./service/login.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -23,14 +23,17 @@ import { FormsModule } from '@angular/forms';
     IntelijConfigurationsComponent,
     TrafficcontrolComponent,
     ControlsComponent,
-    RenderComponent
+    RenderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
