@@ -8,6 +8,6 @@ class TrafficApiServiceMockTests{
     @Test
     fun `CityMock is initialized`(){
         val trafficApiService = TrafficApiServiceMock()
-        assertNotNull(trafficApiService.cityMock)
+        assertNotNull(trafficApiService.getCurrentTraffic())
     }
 }

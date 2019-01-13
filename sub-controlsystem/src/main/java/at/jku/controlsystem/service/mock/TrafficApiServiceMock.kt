@@ -5,14 +5,15 @@ import at.jku.controlsystem.contract.Street
 import at.jku.controlsystem.parser.CityParser
 import at.jku.controlsystem.service.TrafficApiService
 import javax.enterprise.context.RequestScoped
+import javax.enterprise.inject.Alternative
 import javax.enterprise.inject.Default
 import javax.json.JsonObject
 
 @RequestScoped
-@Default
+@Alternative
 class TrafficApiServiceMock: TrafficApiService{
 
-    var cityMock: JsonObject
+    private var cityMock: JsonObject
 
     init {
         val nodes = mutableListOf(
