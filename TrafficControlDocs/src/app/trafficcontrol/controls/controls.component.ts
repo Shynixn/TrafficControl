@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {LoginService} from "../../service/login.service";
+import {CityService} from "../../service/city.service";
 
 @Component({
   selector: 'trafficcontrol-controls',
@@ -16,8 +17,11 @@ export class ControlsComponent implements OnInit {
   public password = "horse-staple";
   public isLoggedIn = false;
 
+  @Output() city = new EventEmitter<any>();
+
   constructor(
-    private loginService: LoginService
+    private loginService: LoginService,
+    private cityService: CityService
   ) {
   }
 
@@ -30,6 +34,16 @@ export class ControlsComponent implements OnInit {
     ).then(
       value => {
         this.isLoggedIn = true;
+
+        this.cityService.requestCity(this.username, this.password)
+          .then(
+            street => {
+              console.log(street);
+              this.city.emit(street);
+            }
+          ).catch(
+            error => console.log(error)
+        );
       }
     ).catch(
       error => {

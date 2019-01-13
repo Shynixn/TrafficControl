@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trafficcontrol.component.sass']
 })
 export class TrafficcontrolComponent implements OnInit {
-  username : String = "test";
-  password :String = "test";
-
-  tmpUsername : String;
-  tmpPassword : String;
+  city: any = null;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onCityLoaded($event: any) {
+    this.city = $event;
   }
 }
