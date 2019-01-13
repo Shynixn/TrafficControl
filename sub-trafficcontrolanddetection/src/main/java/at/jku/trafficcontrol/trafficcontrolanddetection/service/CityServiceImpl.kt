@@ -3,10 +3,7 @@ package at.jku.trafficcontrol.trafficcontrolanddetection.service
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.CityService
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.LoggingService
 import at.jku.trafficcontrol.trafficcontrolanddetection.contract.TrafficParticipantsService
-import at.jku.trafficcontrol.trafficcontrolanddetection.entity.City
-import at.jku.trafficcontrol.trafficcontrolanddetection.entity.Node
-import at.jku.trafficcontrol.trafficcontrolanddetection.entity.Street
-import at.jku.trafficcontrol.trafficcontrolanddetection.entity.TrafficInformation
+import at.jku.trafficcontrol.trafficcontrolanddetection.entity.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -22,7 +19,7 @@ import javax.inject.Inject
 @Default
 @ApplicationScoped
 class CityServiceImpl @Inject constructor(private val trafficParticipantsService: TrafficParticipantsService, private val logger: LoggingService) : CityService {
-    private var city: City = City("Mocked Town", "Mocked Town City in Austria.")
+    private var city: City = City("Linz", "City in Austria.")
 
     /**
      * Initializes the city.
@@ -30,11 +27,20 @@ class CityServiceImpl @Inject constructor(private val trafficParticipantsService
     init {
         val node1 = Node(1)
         val node2 = Node(2)
+        val node3 = Node(3)
+
         val edge1 = Street(1, node1, node2)
+        val edge2 = Street(2, node2, node3)
+
+        edge1.enterTrafficLight = TrafficLight()
+        edge2.enterTrafficLight = TrafficLight()
 
         city.edges.add(edge1)
+        city.edges.add(edge2)
+
         city.nodes.add(node1)
         city.nodes.add(node2)
+        city.nodes.add(node3)
     }
 
     /**
