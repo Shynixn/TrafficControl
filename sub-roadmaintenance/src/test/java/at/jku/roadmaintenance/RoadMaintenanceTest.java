@@ -1,7 +1,9 @@
+package at.jku.roadmaintenance;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class SampleUnitTest {
+public class RoadMaintenanceTest {
 
     /**
      * Sample test.

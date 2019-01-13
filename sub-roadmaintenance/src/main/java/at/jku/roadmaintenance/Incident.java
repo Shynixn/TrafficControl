@@ -13,7 +13,7 @@ public class Incident {
 	private LocalDate end;
 	
 	private ArrayList<RoadSegment> affectedRoadSegments;
-	private ArrayList<Unit> assignedUnits;
+	private ArrayList<WorkUnit> assignedUnits;
 	
 	private StaffMember assignee;
 	
@@ -36,7 +36,7 @@ public class Incident {
 		this.affectedRoadSegments.add(segment);
 	}
 	
-	public void addUnit(Unit unit) {
+	public void addUnit(WorkUnit unit) {
 		this.assignedUnits.add(unit);
 	}
 	
@@ -58,12 +58,12 @@ public class Incident {
 		if ((this.begin != null) && (this.end != null) &&
 			(this.affectedRoadSegments != null) && (this.assignedUnits != null)) {
 				
-			for (Unit u : this.assignedUnits)
+			for (WorkUnit u : this.assignedUnits)
 			{
 				if (Resources.getQuantity(u.getName()) < u.getQuantity())
 					return false;
 			}
-			for (Unit u : this.assignedUnits)
+			for (WorkUnit u : this.assignedUnits)
 			{
 				Resources.withdrawResources(u.getName(), u.getQuantity());
 			}
@@ -79,7 +79,7 @@ public class Incident {
 	
 	public boolean pauseIncident() {
 		
-		for (Unit u : this.assignedUnits)
+		for (WorkUnit u : this.assignedUnits)
 		{
 			Resources.returnResources(u.getName(), u.getQuantity());
 		}
@@ -93,7 +93,7 @@ public class Incident {
 	
 	public boolean finishIncident() {
 		
-		for (Unit u : this.assignedUnits)
+		for (WorkUnit u : this.assignedUnits)
 		{
 			Resources.returnResources(u.getName(), u.getQuantity());
 		}
@@ -122,7 +122,7 @@ public class Incident {
 		}
 		
 		result += "Assigned maintenance units: \n";
-		for (Unit u : this.assignedUnits) {
+		for (WorkUnit u : this.assignedUnits) {
 			result += u + "\n";
 		}
 		

@@ -1,17 +1,17 @@
 package at.jku.roadmaintenance;
 
-public class Unit {
+public class WorkUnit {
 
 	private String name;
 	private int quantity;
 	
-	public Unit(String name) {
+	public WorkUnit(String name) {
 		this.name = name;
 		this.quantity = 1;
 	}
 	
-	public Unit(String name,
-			int quantity) {
+	public WorkUnit(String name,
+					int quantity) {
 		this.name = name;
 		this.quantity = quantity;
 	}

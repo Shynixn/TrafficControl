@@ -1,8 +1,6 @@
 package at.jku.roadmaintenance;
 import java.time.LocalDate;
 
-import at.jku.roadmaintenance.*;
-
 public class Demo {
 
 	public static void main(String[] args) {
@@ -23,8 +21,8 @@ public class Demo {
 		i1.setEndDate(LocalDate.of(2019, 1, 20));
 		
 		//allocate and add units
-		i1.addUnit(new Unit("Bagger", 2));
-		i1.addUnit(new Unit("Arbeiter", 5));
+		i1.addUnit(new WorkUnit("Bagger", 2));
+		i1.addUnit(new WorkUnit("Arbeiter", 5));
 		
 		
 		schedule.addIncident(i1);
