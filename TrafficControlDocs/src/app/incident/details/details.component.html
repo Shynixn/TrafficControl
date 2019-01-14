@@ -1,0 +1,13 @@
+<table class="table">
+  <tr><th>Id</th><th>Type</th><th>Priority</th><th>Start Date</th><th>End Date</th><th>Status</th></tr>
+  <tr *ngFor="let incident of incidents">
+    <td>{{incident.id}}</td>
+    <td>{{incident.type}}</td>
+    <td>{{incident.priority}}</td>
+    <td *ngIf="incident.begin != null">{{incident.begin.dayOfMonth}}-{{incident.begin.month}}-{{incident.begin.year}}</td>
+    <td *ngIf="incident.begin == null">N.A.</td>
+    <td *ngIf="incident.end != null">{{incident.end.dayOfMonth}}-{{incident.end.month}}-{{incident.end.year}}</td>
+    <td *ngIf="incident.end == null">N.A.</td>
+    <td>{{incident.status}}</td>
+  </tr>
+</table>

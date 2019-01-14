@@ -5,6 +5,7 @@ import {DocumentationComponent} from './documentation/documentation.component';
 import {DocumentationNavComponent} from "./documentation-nav/documentation-nav.component";
 import {IntelijConfigurationsComponent} from "./documentation/intelij-configurations/intelij-configurations.component";
 import {TrafficcontrolComponent} from "./trafficcontrol/trafficcontrol.component";
+import {IncidentComponent} from "./incident/incident.component";
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'trafficcontrol',
     component: TrafficcontrolComponent
+  },
+  {
+    path: 'incident',
+    component: IncidentComponent
   }
 ];
 

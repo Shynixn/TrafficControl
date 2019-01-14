@@ -1,0 +1,74 @@
+<form>
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input type="number" id="id" class="form-control" value="{{maxId}}" readonly>
+  </div>
+  <div class="form-group">
+    <label for="type">Type</label>
+    <select class="form-control" id="type" name="type" [(ngModel)]="this.type">
+      <option>Accident</option>
+      <option>Storm</option>
+      <option>Flooding</option>
+      <option>Event</option>
+      <option>Investment</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="priority">Priority</label>
+    <select class="form-control" id="priority" name="priority" [(ngModel)]="this.priority">
+      <option>Standard</option>
+      <option>Low</option>
+      <option>High</option>
+    </select>
+  </div>
+  Start Date:
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="startDateDay">Day </label>
+      <input type="number" class="form-control" id="startDateDay" min="1" max="31" value="1" name="startDay" [(ngModel)]="this.startDay">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="startDateMonth">Month </label>
+      <input type="number" class="form-control" id="startDateMonth" min="1" max="12" value="1" name="startMonth" [(ngModel)]="this.startMonth">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="startDateYear">Year</label>
+      <input type="number" class="form-control" id="startDateYear" min="1990" value="2019" name="startYear" [(ngModel)]="this.startYear">
+    </div>
+  </div>
+  End Date:
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="endDateDay">Day </label>
+      <input type="number" class="form-control" id="endDateDay" min="1" max="31" value="1" name="endDay" [(ngModel)]="this.endDay">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="endDateMonth">Month </label>
+      <input type="number" class="form-control" id="endDateMonth" min="1" max="12" value="1" name="endMonth" [(ngModel)]="this.endMonth">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="endDateYear">Year</label>
+      <input type="number" class="form-control" id="endDateYear" min="1990" value="2019" name="endYear" [(ngModel)]="this.endYear">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="status">Status</label>
+    <select class="form-control" id="status" name="status" [(ngModel)]="this.status">
+      <option>Created</option>
+      <option>Waiting</option>
+      <option>Ready</option>
+      <option>In Progress</option>
+      <option>Paused</option>
+      <option>Finished</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="assigned">Assigne</label>
+    <select class="form-control" id="assigned" name="assigned" [(ngModel)]="this.assigned">
+      <option *ngFor="let staffMember of staffMembers">
+        {{staffMember["name"]}}
+      </option>
+    </select>
+  </div>
+  <button class="btn btn-primary" (click)="dispatchIncident()">Dispatch</button>
+</form>

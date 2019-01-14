@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <br>
+      <h1>Incident Report</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-dispatch [maxId]="maxId" (reloadIncidents)="onReloadIncidents()"></app-dispatch>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-incident-details (maxId)="onMaxId($event)" ></app-incident-details>
+    </div>
+  </div>
+</div>
+

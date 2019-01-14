@@ -4,7 +4,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Incident {
+    private static int nextId = 1;
 
+    private int id;
 	private Status status;
 	private Type type;
 	private Priority priority;
@@ -21,6 +23,7 @@ public class Incident {
 			Type type,
 			Priority priority,
 			StaffMember assignee) {
+		this();
 		//may be caused by the TCD module
 		this.status = Status.CREATED;
 		this.type = type;
@@ -31,8 +34,12 @@ public class Incident {
 		this.assignedUnits = new ArrayList();
 		
 	}
-	
-	public void addRoadSegment(RoadSegment segment) {
+
+    public Incident() {
+		this.id = nextId++;
+    }
+
+    public void addRoadSegment(RoadSegment segment) {
 		this.affectedRoadSegments.add(segment);
 	}
 	
@@ -70,7 +77,7 @@ public class Incident {
 			
 			//inform CS module
 			//inform TP module
-			this.status = Status.IN_PROGESS;		
+			this.status = Status.IN_PROGRESS;
 			return true;
 		}
 		
@@ -128,4 +135,80 @@ public class Incident {
 		
 		return result;
 	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public LocalDate getCreated() {
+		return created;
+	}
+
+	public LocalDate getBegin() {
+		return begin;
+	}
+
+	public LocalDate getEnd() {
+		return end;
+	}
+
+	public ArrayList<RoadSegment> getAffectedRoadSegments() {
+		return affectedRoadSegments;
+	}
+
+	public ArrayList<WorkUnit> getAssignedUnits() {
+		return assignedUnits;
+	}
+
+	public StaffMember getAssignee() {
+		return assignee;
+	}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
+    }
+
+    public void setCreated(LocalDate created) {
+        this.created = created;
+    }
+
+    public void setBegin(LocalDate begin) {
+        this.begin = begin;
+    }
+
+    public void setEnd(LocalDate end) {
+        this.end = end;
+    }
+
+    public void setAffectedRoadSegments(ArrayList<RoadSegment> affectedRoadSegments) {
+        this.affectedRoadSegments = affectedRoadSegments;
+    }
+
+    public void setAssignedUnits(ArrayList<WorkUnit> assignedUnits) {
+        this.assignedUnits = assignedUnits;
+    }
+
+    public void setAssignee(StaffMember assignee) {
+        this.assignee = assignee;
+    }
 }

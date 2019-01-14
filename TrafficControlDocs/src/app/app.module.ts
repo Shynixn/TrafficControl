@@ -14,6 +14,11 @@ import { FormsModule } from '@angular/forms';
 import {LoginService} from "./service/login.service";
 import {HttpClientModule} from "@angular/common/http";
 import {CityService} from "./service/city.service";
+import { IncidentComponent } from './incident/incident.component';
+import { DispatchComponent } from './incident/dispatch/dispatch.component';
+import { DetailsComponent } from './incident/details/details.component';
+import {StaffMemberService} from "./service/staff-member.service";
+import {IncidentService} from "./service/incident.service";
 
 @NgModule({
   declarations: [
@@ -25,6 +30,9 @@ import {CityService} from "./service/city.service";
     TrafficcontrolComponent,
     ControlsComponent,
     RenderComponent,
+    IncidentComponent,
+    DispatchComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +42,9 @@ import {CityService} from "./service/city.service";
   ],
   providers: [
     LoginService,
-    CityService
+    CityService,
+    StaffMemberService,
+    IncidentService
   ],
   bootstrap: [AppComponent]
 })
