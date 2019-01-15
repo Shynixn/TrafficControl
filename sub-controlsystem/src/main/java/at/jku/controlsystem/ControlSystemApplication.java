@@ -1,7 +1,10 @@
 package at.jku.controlsystem;
 
+import at.jku.controlsystem.scheduling.TrafficApiScheduler;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.spi.CDI;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
@@ -15,6 +18,6 @@ public class ControlSystemApplication extends Application {
      */
     @PostConstruct
     public void onStartup() {
-
+        CDI.current().select(TrafficApiScheduler.class).get().schedule();
     }
 }
