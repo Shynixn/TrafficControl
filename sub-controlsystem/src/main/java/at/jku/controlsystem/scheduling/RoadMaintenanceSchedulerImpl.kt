@@ -2,18 +2,17 @@ package at.jku.controlsystem.scheduling
 
 import at.jku.controlsystem.repository.IncidentRepository
 import at.jku.controlsystem.service.RoadMaintenanceService
+import at.jku.controlsystem.service.RoadMaintenanceServiceImpl
 import java.util.logging.Logger
 import javax.enterprise.context.ApplicationScoped
 import javax.enterprise.inject.Default
-import javax.inject.Inject
 
 @ApplicationScoped
 @Default
 class RoadMaintenanceSchedulerImpl: RoadMaintenanceScheduler{
     private var logger: Logger = Logger.getLogger(this::class.qualifiedName)
 
-    @Inject
-    private lateinit var roadMaintenanceService: RoadMaintenanceService
+    private var roadMaintenanceService: RoadMaintenanceService = RoadMaintenanceServiceImpl()
 
     /**
      * Schedules the task every 1 second.
@@ -28,7 +27,7 @@ class RoadMaintenanceSchedulerImpl: RoadMaintenanceScheduler{
                 } catch (e: Exception) {
                     logger.severe("Failed to schedule task.")
                     e.printStackTrace()
-                    Thread.sleep(1000 * 60 * 10)
+                    Thread.sleep(5000)
                 }
             }
         })

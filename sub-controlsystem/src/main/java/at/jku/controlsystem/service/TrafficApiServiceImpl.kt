@@ -40,6 +40,7 @@ class TrafficApiServiceImpl : TrafficApiService{
                             .header("Authorization", authorizationHeader)
                             .get() ?: return ResponseError().noResponse
 
+
             val jsonString = response.readEntity(String::class.java)
 
             return Json.createReader(StringReader(jsonString)).readObject()
@@ -51,6 +52,8 @@ class TrafficApiServiceImpl : TrafficApiService{
             }else {
                 throw e
             }
+        }catch (e:Exception){
+            return ResponseError().noResponse
         }
     }
 

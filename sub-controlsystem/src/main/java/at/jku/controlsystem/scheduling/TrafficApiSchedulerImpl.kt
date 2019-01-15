@@ -28,7 +28,7 @@ class TrafficApiSchedulerImpl : TrafficApiScheduler{
                 } catch (e: Exception) {
                     logger.severe("Failed to schedule task.")
                     e.printStackTrace()
-                    Thread.sleep(1000 * 60 * 10)
+                    Thread.sleep(5000)
                 }
             }
         })
