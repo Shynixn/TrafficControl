@@ -1,4 +1,5 @@
 package at.jku.controlsystem.scheduling
 
-interface TrafficApiScheduler: Scheduler{
+interface Scheduler{
+    fun schedule()
 }

@@ -1,5 +1,6 @@
 package at.jku.controlsystem;
 
+import at.jku.controlsystem.scheduling.RoadMaintenanceScheduler;
 import at.jku.controlsystem.scheduling.TrafficApiScheduler;
 
 import javax.annotation.PostConstruct;
@@ -19,5 +20,6 @@ public class ControlSystemApplication extends Application {
     @PostConstruct
     public void onStartup() {
         CDI.current().select(TrafficApiScheduler.class).get().schedule();
+        CDI.current().select(RoadMaintenanceScheduler.class).get().schedule();
     }
 }

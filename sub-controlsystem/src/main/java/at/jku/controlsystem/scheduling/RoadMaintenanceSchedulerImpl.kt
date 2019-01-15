@@ -1,19 +1,19 @@
 package at.jku.controlsystem.scheduling
 
-import at.jku.controlsystem.repository.TrafficRepository
-import at.jku.controlsystem.service.TrafficApiService
+import at.jku.controlsystem.repository.IncidentRepository
+import at.jku.controlsystem.service.RoadMaintenanceService
 import java.util.logging.Logger
 import javax.enterprise.context.ApplicationScoped
 import javax.enterprise.inject.Default
 import javax.inject.Inject
 
-@Default
 @ApplicationScoped
-class TrafficApiSchedulerImpl : TrafficApiScheduler{
+@Default
+class RoadMaintenanceSchedulerImpl: RoadMaintenanceScheduler{
     private var logger: Logger = Logger.getLogger(this::class.qualifiedName)
 
     @Inject
-    private lateinit var trafficApiService: TrafficApiService
+    private lateinit var roadMaintenanceService: RoadMaintenanceService
 
     /**
      * Schedules the task every 1 second.
@@ -42,9 +42,9 @@ class TrafficApiSchedulerImpl : TrafficApiScheduler{
      */
     override fun schedule() {
         logger.info("--------------------------")
-        logger.info("Polling from Traffic Control and Detection")
+        logger.info("Polling from Road Maintenance")
 
-        TrafficRepository.instance.currentTraffic = (trafficApiService.getCurrentTraffic())
+        IncidentRepository.instance.incidents = roadMaintenanceService.getIncidents()
 
     }
 }
