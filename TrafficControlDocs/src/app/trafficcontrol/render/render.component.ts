@@ -31,35 +31,43 @@ export class RenderComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.setupCanvas();
-    let maxX = 9;
-    let maxY = 9;
-    let size = 50;
-
-    this.drawMesh(maxY, maxX, size);
+    // this.setupCanvas();
+    // let maxX = 9;
+    // let maxY = 9;
+    // let size = 50;
+    //
+    // this.drawMesh(maxY, maxX, size);
   }
 
   private redrawCity(){
     if(this.city != null) {
-      const width = this.canvasStreet.nativeElement.width;
-      const height = this.canvasStreet.nativeElement.height;
-      const nodes = this.city["nodes"];
-      const edges = this.city["edges"];
+      this.setupCanvas();
+      let maxX = 9;
+      let maxY = 9;
+      let size = 50;
 
-      this.context.clearRect(0, 0, width, height);
-
-      let x = 100;
-      let y = 100;
-
-      for(let i = 0; i < edges.length; i++){
-        // let startNode = findNode(nodes, edges[i].startNode.id);
-        // let endNode = findNode(nodes, edges[i].endNode.id);
-
-        this.drawEllipse(x, y);
-        this.drawLineFromTo([x,y], [x+100, y]);
-        this.drawEllipse(x+100, y);
-      }
+      this.drawMesh(maxY, maxX, size);
     }
+    // if(this.city != null) {
+    //   const width = this.canvasStreet.nativeElement.width;
+    //   const height = this.canvasStreet.nativeElement.height;
+    //   const nodes = this.city["nodes"];
+    //   const edges = this.city["edges"];
+    //
+    //   this.context.clearRect(0, 0, width, height);
+    //
+    //   let x = 100;
+    //   let y = 100;
+    //
+    //   for(let i = 0; i < edges.length; i++){
+    //     // let startNode = findNode(nodes, edges[i].startNode.id);
+    //     // let endNode = findNode(nodes, edges[i].endNode.id);
+    //
+    //     this.drawEllipse(x, y);
+    //     this.drawLineFromTo([x,y], [x+100, y]);
+    //     this.drawEllipse(x+100, y);
+    //   }
+    // }
   }
 
   private findNode(nodes: object[], id: number): object{
